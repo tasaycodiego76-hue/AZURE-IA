@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>HTML5 Canvas - Draw a Rectangle</h1>
+
+<div style="display:none;">
+    <img id="fotografo" src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Mi_Gato.jpg">
+</div> 
+
+<canvas id="myCanvas" width="300" height="200" style="border:1px solid black;">
+    Sorry, your browser does not support canvas.
+</canvas>
+
+<script>
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+const image = document.getElementById("fotografo");
+
+image.addEventListener("load", (e) => {
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    
+    ctx.strokeStyle = "red";
+    ctx.rect(100, 20, 100, 150);
+    ctx.stroke();
+});
+</script>
+
+</body>
+</html>
