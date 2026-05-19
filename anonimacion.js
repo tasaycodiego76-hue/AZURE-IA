@@ -1,6 +1,6 @@
 //Servicio FOUNDRY (ZURE) - OCULTAR DATOS SENSIBLES
 
-const suscriptionKey = "4XDJfmEsGT8Xr1jEDMi1BKKgqIDyii8Lycj7CbO4WWS8JC5FjfBoJQQJ99CEAC1i4TkXJ3w3AAAAACOGP0kw"
+const suscriptionKey = ""
 const endpoint = "https://1552480-azure.services.ai.azure.com/"
 
 const url = `${endpoint}/language/:analyze-text?api-version=2023-04-01`
