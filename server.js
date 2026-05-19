@@ -12,9 +12,11 @@ app.use(express.static('Public'));
 
 // Importar las rutas
 const extraccionRoutes = require('./Routes/extraccion');
+const sentimientosRoutes = require('./Routes/sentimientos');
 
 // Usar las rutas
 app.use('/api/extraccion', extraccionRoutes);
+app.use('/api/sentimientos', sentimientosRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {
