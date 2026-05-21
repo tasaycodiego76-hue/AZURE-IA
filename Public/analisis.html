@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Imágenes - AZURE-IA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Análisis de Imágenes</h1>
+
+        <!-- Fila superior: Input URL + Preview -->
+        <div class="row mb-3">
+
+            <!-- Columna izquierda: URL de imagen -->
+            <div class="col-md-7">
+                <div class="card h-100">
+                    <div class="card-header">URL de la Imagen</div>
+                    <div class="card-body d-flex flex-column">
+                        <input
+                            type="url"
+                            id="imageUrlInput"
+                            class="form-control mb-3"
+                            placeholder="https://ejemplo.com/imagen.jpg"
+                        />
+                        <!-- Preview de la imagen -->
+                        <div class="flex-grow-1 d-flex align-items-center justify-content-center bg-light rounded" style="min-height: 200px;">
+                            <img
+                                id="imagenPrevia"
+                                src=""
+                                alt="Vista previa"
+                                class="img-fluid rounded"
+                                style="display: none; max-height: 250px; object-fit: contain;"
+                            />
+                            <span id="placeholderImagen" class="text-muted small">La imagen aparecerá aquí</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna derecha: Info + Botón -->
+            <div class="col-md-5">
+                <div class="card h-100">
+                    <div class="card-header">Información del Análisis</div>
+                    <div class="card-body d-flex flex-column">
+                        <div class="flex-grow-1">
+                            <p class="text-muted mb-3">Azure Computer Vision analizará la imagen y devolverá:</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item px-0">
+                                    <span class="badge bg-success me-2"></span>
+                                    <strong>Descripción</strong> — Caption principal con confianza
+                                </li>
+                                <li class="list-group-item px-0">
+                                    <span class="badge bg-info me-2"></span>
+                                    <strong>Etiquetas</strong> — Tags detectados en la imagen
+                                </li>
+                                <li class="list-group-item px-0">
+                                    <span class="badge bg-primary me-2"></span>
+                                    <strong>Objetos</strong> — Objetos con su ubicación (x, y)
+                                </li>
+                            </ul>
+                        </div>
+                        <button id="btnAnalizar" class="btn btn-primary w-100 mt-3">Analizar Imagen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="text-center mb-3" style="display: none;">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Analizando...</span>
+            </div>
+            <p class="text-muted mt-2">Analizando imagen...</p>
+        </div>
+
+        <!-- Card de Resultados -->
+        <div class="card" id="cardResultados" style="display: none;">
+            <div class="card-header">Resultados</div>
+            <div class="card-body">
+
+                <!-- Alerta éxito/error -->
+                <div id="alertaResultados"></div>
+
+                <!-- Descripción -->
+                <div class="card mb-3 border-success">
+                    <div class="card-header bg-success text-white">Descripción de la Imagen</div>
+                    <div class="card-body">
+                        <p class="mb-1"><strong>Descripción:</strong> <span id="textoDescripcion">—</span></p>
+                        <p class="mb-0"><strong>Confianza:</strong> <span id="confianzaDescripcion">—</span></p>
+                    </div>
+                </div>
+
+                <!-- Etiquetas -->
+                <div class="card mb-3 border-info">
+                    <div class="card-header bg-info text-white">Etiquetas Detectadas</div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Etiqueta</th>
+                                        <th>Confianza</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaEtiquetasBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objetos -->
+                <div class="card border-primary">
+                    <div class="card-header bg-primary text-white">Objetos y Ubicación</div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Objeto</th>
+                                        <th>Confianza</th>
+                                        <th>Ubicación</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaObjetosBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/Js/Analisis.js"></script>
+</body>
+
+</html>
