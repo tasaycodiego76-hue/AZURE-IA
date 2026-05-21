@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Texto - AZURE-IA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Resumen de Texto</h1>
+
+        <!--  Textarea + Info -->
+        <div class="row mb-3">
+
+            <!--  Texto largo -->
+            <div class="col-md-7">
+                <div class="card h-100">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>Texto a Resumir</span>
+                        <small class="text-muted" id="contadorCaracteres">0 caracteres</small>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <textarea
+                            id="textoInput"
+                            class="form-control flex-grow-1"
+                            rows="10"
+                            placeholder="Pega aquí el texto largo que deseas resumir..."
+                        ></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Info + Botón -->
+            <div class="col-md-5">
+                <div class="card h-100">
+                    <div class="card-header">Botón</div>
+                    <div class="card-body d-flex flex-column">
+                        <button id="btnResumير" class="btn btn-primary w-100 mt-3">Resumir Texto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="text-center mb-3" style="display: none;">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Procesando...</span>
+            </div>
+            <p class="text-muted mt-2">Azure está procesando el resumen, por favor espera...</p>
+        </div>
+
+        <!-- Card de Resultados -->
+        <div class="card" id="cardResultados" style="display: none;">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>Resultados del Resumen</span>
+                <span class="badge bg-secondary" id="totalFrases"></span>
+            </div>
+            <div class="card-body">
+                <div id="alertaResultados"></div>
+                <div id="listaFrases"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/Js/Resumen.js"></script>
+</body>
+
+</html>

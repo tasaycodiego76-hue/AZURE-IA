@@ -27,7 +27,7 @@ async function analizarContenido(){
         const confianza = (data.description.captions[0].confidence * 100).toFixed(2)
         console.log(`Descripción: ${descripcion} - Confianza: ${confianza}%`)
 
-        const listasEtiquetas = data.tags.map(fila => `${fila.name} -(${(fila.confidence * 100).toFixed(2)}%`)
+        const listasEtiquetas = data.tags.map(fila => `${fila.name} -(${(fila.confidence * 100).toFixed(2)}%)`)
         listasEtiquetas.forEach(element =>{
             console.log(`${element}`)
         })

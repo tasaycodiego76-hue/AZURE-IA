@@ -4,7 +4,7 @@
 const suscriptionKey = process.env.AZURE_CV_KEY;
 const endpoint = process.env.AZURE_CV_ENDPOINT;
 
-const url = `${endpoint}/vision/v3.2/analyze?visualFeatures=Description,Tags,Objects`;
+const url = `${endpoint}/vision/v3.2/analyze?visualFeatures=Description,Tags,Objects&language=es`;
 
 exports.analizarImagen = async (req, res) => {
     try {

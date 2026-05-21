@@ -14,10 +14,12 @@ app.use(express.static('Public'));
 const extraccionRoutes = require('./Routes/extraccion');
 const sentimientosRoutes = require('./Routes/sentimientos');
 const analisisRoutes = require('./Routes/analisis');
+const resumenRoutes = require('./Routes/resumen');
 
 // Usar las rutas
 app.use('/api/extraccion', extraccionRoutes);
 app.use('/api/sentimientos', sentimientosRoutes);
+app.use('/api/resumen', resumenRoutes);
 app.use('/api/analisis', analisisRoutes);
 
 const PORT = 3000;
