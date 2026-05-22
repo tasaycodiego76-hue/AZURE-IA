@@ -15,12 +15,13 @@ const extraccionRoutes = require('./Routes/extraccion');
 const sentimientosRoutes = require('./Routes/sentimientos');
 const analisisRoutes = require('./Routes/analisis');
 const resumenRoutes = require('./Routes/resumen');
+const ocrRoutes = require('./Routes/ocr');
 
 // Usar las rutas
 app.use('/api/extraccion', extraccionRoutes);
 app.use('/api/sentimientos', sentimientosRoutes);
 app.use('/api/resumen', resumenRoutes);
-app.use('/api/analisis', analisisRoutes);
+app.use('/api/ocr', ocrRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {
