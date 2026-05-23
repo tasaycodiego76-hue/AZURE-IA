@@ -16,12 +16,14 @@ const sentimientosRoutes = require('./Routes/sentimientos');
 const analisisRoutes = require('./Routes/analisis');
 const resumenRoutes = require('./Routes/resumen');
 const ocrRoutes = require('./Routes/ocr');
+const imagenRoutes = require('./Routes/imagen');
 
 // Usar las rutas
 app.use('/api/extraccion', extraccionRoutes);
 app.use('/api/sentimientos', sentimientosRoutes);
 app.use('/api/resumen', resumenRoutes);
 app.use('/api/ocr', ocrRoutes);
+app.use('/api/imagen', imagenRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {
