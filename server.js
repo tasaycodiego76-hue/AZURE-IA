@@ -19,6 +19,7 @@ const ocrRoutes = require('./Routes/ocr');
 const imagenRoutes = require('./Routes/imagen');
 const anonimizarRoutes = require('./Routes/anonimizar');
 const chatRoutes = require('./Routes/chat');
+const pdfRoutes = require('./Routes/pdf');
 
 // Usar las rutas
 app.use('/api/extraccion', extraccionRoutes);
@@ -27,7 +28,7 @@ app.use('/api/resumen', resumenRoutes);
 app.use('/api/ocr', ocrRoutes);
 app.use('/api/imagen', imagenRoutes);
 app.use('/api/anonimizar', anonimizarRoutes);
-app.use('/api/anonimizar', anonimizarRoutes);
+app.use('/api/pdf', pdfRoutes);
 app.use('/api/chat', chatRoutes);
 
 const PORT = 3000;

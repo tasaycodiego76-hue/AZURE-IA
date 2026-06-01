@@ -1,8 +1,8 @@
 /* Servicio de chatbot usando Azure OpenAI con historial de conversación */
-const API_KEY      = process.env.AZURE_OPENAI_KEY;
-const ENDPOINT     = process.env.AZURE_OPENAI_ENDPOINT;
-const DEPLOYMENT   = 'gpt-5.4-mini';
-const API_VERSION  = '2025-04-01-preview';
+const API_KEY = process.env.AZURE_OPENAI_KEY;
+const ENDPOINT = process.env.AZURE_OPENAI_ENDPOINT;
+const DEPLOYMENT = 'gpt-5.4-mini';
+const API_VERSION = '2025-04-01-preview';
 
 exports.chat = async (req, res) => {
     try {
@@ -19,7 +19,7 @@ exports.chat = async (req, res) => {
             messages: [
                 { role: 'system', content: 'Eres un asistente útil y amigable. Responde siempre en español de forma clara y concisa.' },
                 ...historial,
-                { role: 'user', content: pregunta }
+                { role: 'user', content: pregunta + ', dame una respuesta corta' }
             ],
             max_completion_tokens: 800,
             temperature: 0.7
